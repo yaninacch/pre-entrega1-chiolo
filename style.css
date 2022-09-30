@@ -1,0 +1,278 @@
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: white;
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+    background-color: #f8ceec;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+    height: 50px;
+    text-align: center;
+    border-bottom: 6px solid plum;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+nav ul li {
+    float: left;
+    list-style: none;
+    margin: 10px;
+    line-height: 30px;
+}
+
+.navbar-light .navbar-nav .nav-link  {
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    opacity: 0.7;
+    color: white;
+}
+
+.cuotas{
+    background-color: plum;
+    margin-top: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: blueviolet;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 25px;
+    font-size: 20px;
+
+}
+
+.menu-button:focus {
+    box-shadow: none;
+    border: 1px solid lightgray;
+}
+
+.menu-icon{
+    margin-left: 0rem;
+    margin-top: 0rem;
+}
+.menu-word{
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.logo-icon{
+    margin-top: 0%;
+    margin-left: 0%;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+a {
+    text-align: center;
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+
+h1 {
+    text-align: center;
+    color: blueviolet;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-top: 1%;
+    font-size: xx-large;
+}
+
+h2 {
+    text-align: center;
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+
+.card{
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+iframe {
+    display: block;
+    margin-left: auto;
+    width: 30%;
+    height: 20 rem;
+}
+
+footer {
+    background-color: #f8ceec;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+    margin-top: 20%;
+    border-top: 6px solid plum;
+    display: flex;
+}
+
+i {
+    font-size: 47px;
+    color: white;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border: 4px solid white;
+    padding: .8rem;
+    border-radius: 50%;
+
+}
+
+
+
+.instagram-acc {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.facebook-acc {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Seccion quienes somos grid */
+
+.quienes-container {
+    display: grid;
+    grid-template-areas:
+        "header-grid header-grid"
+        "h1-grid h1-grid"
+        "imagen texto"
+        "footer-grid footer-grid"
+}
+
+.header-grid {
+    grid-area: header-grid;
+}
+
+.h1-grid {
+    grid-area: h1-grid;
+}
+
+.imagen {
+    padding: 1rem;
+    grid-area: imagen;
+}
+
+.texto {
+    display: flex;
+    align-items: center;
+    grid-area: texto;
+    padding: 0 1rem;
+}
+
+.footer-grid {
+    grid-area: footer-grid;
+}
+
+@media screen and (max-width: 990px) {
+    nav {
+        height: auto;
+        
+    }  
+    img {
+        max-width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }  
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    img {
+        max-width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    h1{
+        font-size: large;
+        font-weight: bold;
+    }
+    h2{
+        font-size: medium;
+    }
+
+    .quienes-container {
+        grid-template-areas:
+            "header-grid header-grid"
+            "h1-grid h1-grid"
+            "texto texto"
+            "imagen imagen"
+            "footer-grid footer-grid";
+    }
+    .texto{
+        font-size: smaller;
+    }
+    .contact-form div label{
+        font-size: small;
+    }
+    
+    footer{
+        flex-direction: column;
+    }
+    .social-media{
+        flex-direction: row;
+        padding: 1rem;
+    }
+    i{
+        font-size: 20px;
+    }
+    .instagram-acc{
+        font-size: smaller;
+    }
+    .facebook-acc{
+        font-size: smaller;
+    }
+    iframe{
+        margin-left: 0%;
+        width: 100%;
+    }
+
+}
