@@ -1,3 +1,43 @@
+//Segunda pre-entrega: Agregué objetos, arrays y métodos
+
+const listaRemeras = [
+    {
+        id: 1,
+        name: "Remera batik",
+        precio: 1500
+    },
+    {
+        id: 2,
+        name: "Remera rocker",
+        precio: 1200
+    },
+    {
+        id: 3,
+        name: "Remera manga larga",
+        precio: 2300
+    }];
+
+
+let inputName = prompt("Ingrese el nombre del producto");
+
+let found = listaRemeras.find((remera) => remera.name.toLowerCase() == inputName.toLowerCase());
+console.log(found);
+
+if(found){
+    alert("Tenemos en stock");
+    console.log(found);
+}else{
+    alert("La remera no se encuentra en stock")
+    console.log("La remera no se encuentra en stock");
+}
+
+let inputPrecio = parseInt(prompt("Filtrar por precio hasta: "));
+
+const listaPrecio = listaRemeras.filter((remera) => remera.precio < inputPrecio);
+console.log(listaPrecio); 
+
+//Primera pre-entrega
+
 let total = 0;
 
 let confirmedPurchase = false;
@@ -36,6 +76,8 @@ for (let i = 1; i <= 3; i++) {
 }
 
 
+
+
 if (confirmedPurchase) {
 
     let descuento = parseFloat(prompt("Ingrese el total a pagar para solicitar descuento"));
@@ -58,4 +100,6 @@ function calcularDescuento(precio) {
 function calcularTotal(precio, descuento) {
     return precio - descuento;
 }
+
+
 
