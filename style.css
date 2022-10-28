@@ -91,6 +91,28 @@ a {
     text-decoration: none;
 }
 
+.find {
+    margin-top: auto;
+}
+.find-button {
+    background-color: #f8ceec;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+    color: white;
+    border-radius: 2rem;
+    border-color: white;
+    margin: auto;
+    margin-top: auto;
+    font-weight: bold;
+    padding: none;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.fa-solid{
+    margin-left: 0%;
+    margin-top: 0%;
+    font-size: large;
+    padding: initial;
+    border: none;
+}
 
 h1 {
     text-align: center;
@@ -118,7 +140,102 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.card-title{
+    color: blueviolet;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 20px;
+    margin-top: 2%;
+    font-size: 25px;
+}
 
+.card-text{
+    color: blueviolet;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 20px;
+    margin-top: 2%;
+    font-size: 25px;
+}
+.btn{
+    background-color: #f8ceec;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+    color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    border-color: white;
+    margin: auto;
+    border: 1px solid ghostwhite;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.btn-search{
+    padding: .5rem;
+    margin: auto;
+    margin-top: none;
+}
+h4{
+    text-align: center;
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.trolley-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.trolley-icon i{
+    font-size: 47px;
+    color: blueviolet;
+    margin-left: 10px;
+    margin-top: 2rem;
+    border: 4px solid blueviolet;
+    padding: .8rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+.trolley-icon p{
+    text-align: center;
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.table{
+    text-align: center;
+    color: blueviolet;
+    background-color: plum;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+td{
+    text-align: center;
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+.btn-desc{
+    display: flex;
+    justify-content: center;
+}
 iframe {
     display: block;
     margin-left: auto;

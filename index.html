@@ -54,39 +54,54 @@
 
     <main>
         <h1 class="animate__animated animate__backInDown">REMERAS</h1>
+        <form>
+            <input type="text" id="findInput">
+            <button id="findButton" class="btn btn-primary btn-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button id="cleanButton" class="btn btn-primary btn-search">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <button id="filterButton" class="btn btn-primary btn-search">
+                Filtrar por precio
+            </button>
+        </form>
 
+    
+           
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-4">
-                    <div class="card">
-                        <img src="./img/batik.jpg" class="card-img-top" alt="batik">
-                        <div class="card-body">
-                            <p class="card-text">Remera batik</p>
-                            <p>$1500</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="card">
-                        <img src="./img/rocker-resized.png" class="card-img-top" alt="remerasinmangas">
-                        <div class="card-body">
-                            <p class="card-text">Remera rocker</p>
-                            <p>$1200</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-4">
-                    <div class="card">
-                        <img src="./img/manga-larga-resized.png" class="card-img-top" alt="mangalarga">
-                        <div class="card-body">
-                            <p class="card-text">Remera manga larga</p>
-                            <p>$2300</p>
-                        </div>
-                    </div>
-                </div>
+        
+        <div>
+            <div id="misprods" class="row">
+                <!-- Aqui los productos -->
             </div>
+            <p></p>
+        </div>
+
+
+        <div>
+            <div class="trolley-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>TU CARRITO:</p>
+            </div>
+            
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="tablabody">
+                    <!-- aqui tabla carrito -->
+                </tbody>
+            </table>
+            <h4 id="total">Total a pagar $:</h4>
+            <button id="descuento" class="btn btn-primary btn-desc">DESCUENTO!</button>
+        </div>
+        </div>
 
     </main>
     <footer>
@@ -109,6 +124,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="products.js"></script>
     <script src="main.js"></script>
 </body>
 
