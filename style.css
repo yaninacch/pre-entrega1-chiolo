@@ -214,6 +214,7 @@ h4{
     margin-left: 2rem;
 }
 
+
 .table{
     text-align: center;
     color: blueviolet;
@@ -232,9 +233,27 @@ td{
     font-weight: bold;
     font-size: x-large;
 }
+
+.descText{
+    text-align: center;
+    color: blueviolet;
+    background-color: #f8ceec;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: x-large; 
+}
 .btn-desc{
     display: flex;
     justify-content: center;
+}
+
+.locationText {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 1rem;
 }
 iframe {
     display: block;
@@ -262,7 +281,9 @@ i {
 
 }
 
-
+.event-null {
+    pointer-events: none;
+}
 
 .instagram-acc {
     color: white;
@@ -283,6 +304,8 @@ i {
 .social-media {
     display: flex;
     flex-direction: row;
+    align-content: center;
+    margin-left: 5rem;
 }
 
 /* Seccion quienes somos grid */

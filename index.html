@@ -72,8 +72,8 @@
 
         
         <div>
-            <div id="misprods" class="row">
-                <!-- Aqui los productos -->
+            <div id="myproducts" class="row w-100">
+                <!-- Productos -->
             </div>
             <p></p>
         </div>
@@ -92,19 +92,23 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody id="tablabody">
-                    <!-- aqui tabla carrito -->
+                    <!-- Carrito -->
                 </tbody>
             </table>
             <h4 id="total">Total a pagar $:</h4>
+            <p class="descText">Abonando mediante transferencia, obtendrás un increible descuento!</p>
             <button id="descuento" class="btn btn-primary btn-desc">DESCUENTO!</button>
+            <button id="buy" class="btn btn-primary btn-desc">FINALIZAR COMPRA</button>
         </div>
         </div>
 
     </main>
     <footer>
+        <p id="location" class="locationText"></p>
         <div class="social-media">
             <div class="ig-wrapper">
                 <i class="fa-brands fa-instagram"></i>
@@ -115,15 +119,18 @@
                 <p class="facebook-acc">CH Indumentaria</p>
             </div>
         </div>
+        
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210146.68168877432!2d-58.573383207134555!3d-34.615743688997895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses!2sar!4v1656641175190!5m2!1ses!2sar"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="products.js"></script>
     <script src="main.js"></script>
 </body>

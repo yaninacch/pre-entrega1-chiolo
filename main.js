@@ -1,142 +1,231 @@
-//Tercera Pre Entrega
+//Proyecto Final
 
-const carrito = [];
-let totalCarrito;
-let contenedor = document.getElementById("misprods");
+let shoppingCart = [];
+let totalShoppingCart;
+let container = document.getElementById("myproducts");
+let discount = document.getElementById("descuento");
+let buyButton = document.getElementById("buy");
 
-let listaRemerasShowed = listaRemeras;
+let shirtListShowed = shirtList;
 
-function renderizarProds() {
-    for (const producto of listaRemerasShowed) {
-        console.log(producto)
-        contenedor.innerHTML += `<div class="card col-sm-4">
-                <img src=${producto.imgUrl} class="card-img-top" alt="...">
+// Esta función se encarga de agregar la card de productos en el html, en base a la lista de arrays
+
+function displayProds() {
+    for (const product of shirtListShowed) {
+
+        container.innerHTML += `
+        <div class="card col-sm-4">
+                <img src=${product.imgUrl} class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${producto.id}</h5>
-                    <p class="card-text">${producto.name}</p>
-                    <p class="card-text">$ ${producto.precio}</p>
-                    <button id="btn${producto.id}" class="btn btn-primary">LO QUIERO!</button>
+                    <h5 class="card-title">${product.id}</h5>
+                    <p class="card-text">${product.name}</p>
+                    <p class="card-text">$ ${product.price}</p>
+                    <button id="btn${product.id}" class="btn btn-primary">LO QUIERO!</button>
                 </div>
-            </div>
+        </div>
         `;
 
     }
 
-    listaRemerasShowed.forEach(producto => {
-        console.log(`btn${producto.id}`)
-        document.getElementById(`btn${producto.id}`).addEventListener("click", function () {
-            agregarAlCarrito(producto);
+    shirtListShowed.forEach(product => {
+
+        document.getElementById(`btn${product.id}`).addEventListener("click", function () {
+            addShoppingCart(product, true);
         });
     })
 }
 
-console.log(listaRemeras)
+// Almacena el carrito en localStorage
 
-function verificarCarrito() {
-    console.log(JSON.parse(localStorage.getItem("carrito")));
+function checkShoppingCart() {
 
-    let storedCarrito = JSON.parse(localStorage.getItem("carrito"));
 
-    if( storedCarrito && storedCarrito.length >= 1 ) {
-        
-        for (const producto of storedCarrito) {
-            agregarAlCarrito(producto)
+    let storedCart = JSON.parse(localStorage.getItem("shoppingCart"));
+
+    if (storedCart && storedCart.length >= 1) {
+
+        for (const product of storedCart) {
+            addShoppingCart(product, false)
         }
 
     }
 }
 
 
-verificarCarrito();
-renderizarProds();
+checkShoppingCart();
+displayProds();
 
-function agregarAlCarrito(productoComprado) {
-    carrito.push(productoComprado);
-    console.table(carrito);
+function addShoppingCart(boughtProduct, displayAlert) {
+    shoppingCart.push(boughtProduct);
+    console.table(shoppingCart);
+
+    if (displayAlert) {
+        Swal.fire({
+            title: boughtProduct.name,
+            text: 'Se agregó al carrito',
+            imageUrl: boughtProduct.imgUrl,
+            imageWidth: 200,
+            imageHeight: 200,
+            color: '#aa14c0',
+            imageAlt: boughtProduct.name,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+
     document.getElementById("tablabody").innerHTML += `
         <tr>
-            <td>${productoComprado.id}</td>
-            <td>${productoComprado.name}</td>
-            <td>${productoComprado.precio}</td>
+            <td>${boughtProduct.id}</td>
+            <td>${boughtProduct.name}</td>
+            <td>${boughtProduct.price}</td>
+            <td>
+                <button id="removeButton" onClick="removeProductFromCart(event, ${boughtProduct.id})" class="btn btn-primary btn-search">
+                    <i class="fa-solid fa-trash event-null"></i>
+                </button>
+            </td>
         </tr>
     `;
-    totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-    let infoTotal = document.getElementById("total");
-    infoTotal.innerText = "Total a pagar $: " + totalCarrito;
+    totalShoppingCart = shoppingCart.reduce((accumulator, product) => accumulator + product.price, 0);
+    let totalInformation = document.getElementById("total");
+    totalInformation.innerText = "Total a pagar $: " + totalShoppingCart;
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
 }
 
+// Elimina el producto agregado al carrito
+function removeProductFromCart(ev, id) {
 
+    let line = ev.target.parentElement.parentElement;
 
-// Find y Filter
+    // let id = line.children[0].innerText;
+
+    let index = shoppingCart.findIndex(product => product.id == id);
+
+    shoppingCart.splice(index, 1);
+
+    line.remove();
+    totalShoppingCart = shoppingCart.reduce((accumulator, product) => accumulator + product.price, 0);
+    total.innerText = "Total a pagar $: " + totalShoppingCart;
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+
+}
+
+// Busca el producto por nombre
 
 let inputName = document.getElementById("findButton");
 inputName.addEventListener("click", function (e) {
     e.preventDefault();
     let userInput = document.getElementById('findInput').value;
 
-    let found = listaRemeras.find((remera) => remera.name.toLowerCase() == userInput.toLowerCase());
+    let found = shirtList.find((shirt) => shirt.name.toLowerCase() == userInput.toLowerCase());
 
 
-    contenedor.innerHTML = '';
+    container.innerHTML = '';
 
-    listaRemerasShowed = [found];
+    shirtListShowed = [found];
 
-    renderizarProds();
+    displayProds();
 
 
-
-    console.log("hice click", userInput, found);
 });
 
+// Limpia el filtro y vuelve a cargar todas las remeras
 let refresh = document.getElementById("cleanButton");
 refresh.addEventListener("click", function (e) {
     e.preventDefault();
 
-    contenedor.innerHTML = '';
+    document.getElementById('findInput').value = '';
 
-    listaRemerasShowed = listaRemeras;
+    container.innerHTML = '';
 
-    renderizarProds();
+    shirtListShowed = shirtList;
+
+    displayProds();
 
 
 });
 
+// Filtra los productos por precio
 let inputPrice = document.getElementById("filterButton");
 inputPrice.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("funciona");
+
     let numberInput = document.getElementById('findInput').value;
-    console.log(numberInput);
 
-    const filterPrice = listaRemeras.filter((remera) => remera.precio <= numberInput);
 
-    contenedor.innerHTML = '';
+    const filterPrice = shirtList.filter((shirt) => shirt.price <= numberInput);
 
-    listaRemerasShowed = filterPrice;
+    container.innerHTML = '';
 
-    renderizarProds();
+    shirtListShowed = filterPrice;
+
+    displayProds();
 
 });
 
-// Botón de descuento
+// Botón de descuento: Realiza un descuento de 10% al total
 
-let descount = document.getElementById("descuento");
-descount.addEventListener("click", function (e) {
+discount.addEventListener("click", function (e) {
     e.preventDefault();
 
-    let descountResult = totalCarrito * 0.10;
-   
-    console.log(descountResult);
+    let discountResult = totalShoppingCart * 0.10;
 
-    
-    totalCarrito = totalCarrito - descountResult;
 
-    let infoTotal = document.getElementById("total");
-    infoTotal.innerText = "Total a pagar $: " + totalCarrito;
-     
+    totalShoppingCart = totalShoppingCart - discountResult;
+
+    let totalInformation = document.getElementById("total");
+    totalInformation.innerText = "Total a pagar $: " + totalShoppingCart;
+
 
 }, { once: true });
 
+// Para finalizar la compra
 
+
+buyButton.onclick = () => {
+    if (shoppingCart.length == 0) {
+        Swal.fire({
+            title: 'No se agregaron productos al carrito',
+            icon: 'error',
+            color: '#aa14c0',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    } else {
+        shoppingCart = [];
+        document.getElementById("tablabody").innerHTML = "";
+        let totalInformation = document.getElementById("total");
+        totalInformation.innerText = "Total a pagar $: ";
+        Swal.fire({
+            title: "Le llegará un mensaje para confirmar su compra",
+            icon: 'success',
+            color: '#aa14c0',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+}
+
+// Fecha, locación y hora
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '2bc9a03d84msh9fe34ede1b6cf23p1afb39jsn8141b88ec9bc',
+        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    }
+};
+
+fetch('https://weatherapi-com.p.rapidapi.com/timezone.json?q=Argentina', options)
+    .then(response => response.json())
+    .then(response => showTimezone(response))
+    .catch(err => console.error(err));
+
+
+function showTimezone(resp) {
+
+    const footerLocation = document.getElementById('location');
+
+    footerLocation.innerHTML = `${resp.location.name}, ${resp.location.country} - ${resp.location.localtime}`;
+
+}
